@@ -3,12 +3,9 @@ import sys
 
 
 def error_and_close(socket_id, err_code, API_name):
-    if err_code != -2 and errCode != -108:
+    if err_code != -2 and err_code != -108:
         [err_code2, err_str] = xps.ErrorStringGet(socket_id, err_code)
-        if (error_code != 0):
-            print API_name + ': ERROR ' + str(err_code)
-        else:
-            print API_name + ': ' + err_str
+        print API_name + ': ' + err_str
     else:
         if (err_code == -2):
             print API_name + ': TCP timeout'
@@ -74,7 +71,7 @@ for index in range(10):
     else:
         print 'Positioner' + positioner + ' is in poisition ' + str(cur_pos)
 
-group = 'Group2'  # x 
+group = 'Group2'  # x
 positioner = group + '.Pos'
 
 # Kill the group
@@ -123,7 +120,7 @@ for index in range(10):
         print 'Positioner' + positioner + ' is in poisition ' + str(cur_pos)
 
 
-group = 'Group3'  # y 
+group = 'Group3'  # y
 positioner = group + '.Pos'
 
 # Kill the group
@@ -171,7 +168,7 @@ for index in range(10):
     else:
         print 'Positioner' + positioner + ' is in poisition ' + str(cur_pos)
 
-group = 'Group4'  # spindle 
+group = 'Group4'  # spindle
 positioner = group + '.Pos'
 
 # Kill the group
@@ -220,4 +217,3 @@ for index in range(3):
         print 'Positioner' + positioner + ' is in poisition ' + str(cur_pos)
 
 xps.TCP_CloseSocket(socket_id)
-
