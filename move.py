@@ -14,7 +14,7 @@
 #################################################
 
 import argparse
-import core
+import xps
 
 
 if __name__ == '__main__':
@@ -25,22 +25,22 @@ if __name__ == '__main__':
     parser.add_argument('-s', dest='spindle', type=float,
                         help='spindle position')
     args = parser.parse_args()
-    xps = core.XPS()
-    xps.initialise_all()
-    xps.move_x(args.xPos)
-    xps.move_y(args.yPos)
-    xps.move_z(args.zPos)
-    xps.move_spindle(args.spindle)
-    xps.print_position()
-    if not xps.check_position_x(args.xPos):
-        xps.move_x(args.xPos)
-        print "Adjusted", xps.print_position()
-    if not xps.check_position_y(args.yPos):
-        xps.move_y(args.yPos)
-        print "Adjusted", xps.print_position()
-    if not xps.check_position_z(args.zPos):
-        xps.move_z(args.zPos)
-        print "Adjusted", xps.print_position()
-    if not xps.check_position_spindle(args.spindle):
-        xps.move_spindle(args.spindle)
-        print "Adjusted", xps.print_position()
+    my_xps = xps.XPS()
+    my_xps.initialise_all()
+    my_xps.move_x(args.xPos)
+    my_xps.move_y(args.yPos)
+    my_xps.move_z(args.zPos)
+    my_xps.move_spindle(args.spindle)
+    my_xps.print_position()
+    if not my_xps.check_position_x(args.xPos):
+        my_xps.move_x(args.xPos)
+        print "Adjusted", my_xps.print_position()
+    if not my_xps.check_position_y(args.yPos):
+        my_xps.move_y(args.yPos)
+        print "Adjusted", my_xps.print_position()
+    if not my_xps.check_position_z(args.zPos):
+        my_xps.move_z(args.zPos)
+        print "Adjusted", my_xps.print_position()
+    if not my_xps.check_position_spindle(args.spindle):
+        my_xps.move_spindle(args.spindle)
+        print "Adjusted", my_xps.print_position()
